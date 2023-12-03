@@ -13,7 +13,7 @@ const Filters = ({ setMainData }) => {
   const getDataFromDB = async (year) => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/data/year/${year}`
+        `${process.env.REACT_APP_SERVER_URL}/api/data/year/${year}`
       );
       setMainData(response.data.data);
     } catch (e) {
@@ -23,7 +23,7 @@ const Filters = ({ setMainData }) => {
   // func to handle the "reset filters button" by making another api call and update state
   const handleReset = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/data/all");
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/data/all`);
       setMainData(response.data.data);
     } catch (e) {
       console.log(e);

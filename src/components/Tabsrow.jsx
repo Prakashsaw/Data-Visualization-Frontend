@@ -21,7 +21,7 @@ const Tabsrow = ({ data, setMainData }) => {
     e.preventDefault();
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/data/any/${search}`
+        `${process.env.REACT_APP_SERVER_URL}/api/data/any/${search}`
       );
       setMainData(response.data.data);
       setSearch("");
