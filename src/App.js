@@ -13,7 +13,7 @@ function App() {
   //asynchronous function to fetch data from server and updating the state
   const getDataFromDB = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/data/all");
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/data/all`);
       setMainData(response.data.data);
     } catch (e) {
       console.log(e);
